@@ -6,11 +6,34 @@ const styles = StyleSheet.create({
     backgroundColor: '#131016',
     padding: 15,
   },
+  header: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 40,
+  },
+  headerContent: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  editEventNameBtn: {
+    width: 50,
+    height: 40,
+    borderRadius: 50,
+    backgroundColor: '#131016',
+    borderColor: '#fff',
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  editEventNameBtnText: {
+    color: 'white',
+    fontSize: 12,
+  },
   eventName: {
     color: '#FDFCFE',
     fontSize: 24,
     fontWeight: 'bold',
-    marginTop: 40,
   },
   eventDate: {
     color: '#6B6B6D',

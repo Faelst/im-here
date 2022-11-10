@@ -8,11 +8,19 @@ import {
     View,
 } from 'react-native'
 import { Participant } from '../../components'
+import dayJs from 'dayjs'
+import ptBR from 'dayjs/locale/pt-br'
+
 import styles from './styles'
 
 export function Home() {
+    const [eventName, setEventName] = useState('Nome do evento')
     const [participantName, setParticipantName] = useState('')
     const [participants, setParticipants] = useState<string[]>([])
+
+    const currentDate = dayJs(new Date())
+        .locale(ptBR)
+        .format('dddd[,] DD [de] MMMM [de] YYYY')
 
     const handleParticipantAdd = () => {
         if (participantName.trim() === '') {
@@ -55,8 +63,18 @@ export function Home() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.eventName}>Nome do evento</Text>
-            <Text style={styles.eventDate}>{new Date().toISOString()}</Text>
+            <View style={styles.header}>
+                <View style={styles.headerContent}>
+                    <Text style={styles.eventName}>{eventName}</Text>
+                    <Text style={styles.eventDate}>{currentDate}</Text>
+                </View>
+                <TouchableOpacity
+                    style={styles.editEventNameBtn}
+                    activeOpacity={0.8}
+                >
+                    <Text style={styles.editEventNameBtnText}>Editar</Text>
+                </TouchableOpacity>
+            </View>
 
             <View style={styles.form}>
                 <TextInput
